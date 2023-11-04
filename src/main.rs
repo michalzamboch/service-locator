@@ -1,7 +1,8 @@
-use locator::*;
+use holder::AnimalHolder;
 use types::animal_type::AnimalTypes;
 
 mod locator;
+mod holder;
 mod types;
 
 fn main() {
