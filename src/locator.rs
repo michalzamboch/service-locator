@@ -1,8 +1,8 @@
-
 use std::{cell::RefCell, collections::HashMap, rc::Rc};
 
-use crate::types::{animal_type::AnimalTypes, creatable_trait::ICreatable};
-
+use crate::types::{
+    animal_trait::Animal, animal_type::AnimalTypes, cat::Cat, creatable_trait::ICreatable,
+};
 
 trait IObjectLocator<T: Default + Clone> {
     fn get(&self, path: String) -> Rc<RefCell<T>>;
@@ -34,4 +34,8 @@ pub fn object_creator<T: Default + ICreatable>(animal_type: AnimalTypes) -> Rc<R
 pub fn object_creator_test<T: Default + ICreatable>(animal_type: AnimalTypes) -> Rc<RefCell<T>> {
     let x = object_creator::<T>(AnimalTypes::Cat);
     x.clone()
+}
+
+pub fn create_cat() -> Rc<RefCell<dyn Animal>> {
+    object_creator::<Cat>(AnimalTypes::Cat)
 }
