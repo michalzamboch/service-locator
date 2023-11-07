@@ -1,8 +1,8 @@
 use holder::AnimalHolder;
 use types::animal_type::AnimalTypes;
 
-mod locator;
 mod holder;
+mod locator;
 mod types;
 
 fn main() {
@@ -23,7 +23,7 @@ fn main() {
         let cat = animal_holder.get(AnimalTypes::Cat);
         cat.borrow().speak();
     }
-    
+
     let dog = animal_holder.get(AnimalTypes::Dog);
     dog.borrow().speak();
 }

@@ -1,3 +1,5 @@
+#![allow(dead_code, unused_variables)]
+
 use std::{cell::RefCell, collections::HashMap, rc::Rc};
 
 use crate::types::{
@@ -11,7 +13,7 @@ trait IObjectLocator<T: Default + Clone> {
 #[derive(Clone, Debug)]
 pub struct ObectLocator;
 
-impl<T: Clone + Default> IObjectLocator<T> for ObectLocator {
+impl<T: Clone + Default + ICreatable> IObjectLocator<T> for ObectLocator {
     fn get(&self, path: String) -> Rc<RefCell<T>> {
         Rc::new(RefCell::new(T::default()))
     }
