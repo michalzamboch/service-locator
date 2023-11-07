@@ -11,9 +11,9 @@ trait IObjectLocator<T: Default + Clone> {
 }
 
 #[derive(Clone, Debug)]
-pub struct ObectLocator;
+pub struct ObjectLocator;
 
-impl<T: Clone + Default + ICreatable> IObjectLocator<T> for ObectLocator {
+impl<T: Clone + Default + ICreatable> IObjectLocator<T> for ObjectLocator {
     fn get(&self, path: String) -> Rc<RefCell<T>> {
         Rc::new(RefCell::new(T::default()))
     }
