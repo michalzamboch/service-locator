@@ -2,7 +2,6 @@ use holder::AnimalHolder;
 use types::animal_type::AnimalTypes;
 
 mod holder;
-mod locator;
 mod types;
 
 fn main() {
